@@ -1,20 +1,32 @@
 flowchart TD
-    U[User: fictional preferences] --> UI[Browser interface]
-    UI --> Q[Questionnaire state]
-    Q --> R[Rule-based risk inference]
-    R -->|category / conflict| P[Profile + clarification screen]
-    P -->|edit answer| Q
-    P -->|continue if ready| S[Fictional scenario selector]
-    S --> D[Static portfolio examples]
-    D --> C[Risk-category comparator]
-    R --> C
-    C --> V[Standard or inspectable advice view]
-    V -->|why / switch mode| V
-    V -->|accept or decline| F[Decision feedback]
-    F --> H[In-memory session event history]
-    F -->|reconsider| V
-    UI -->|reset| Q
-    classDef built fill:#e6f6ed,stroke:#28785d,color:#163f34;
-    classDef simulated fill:#fff2df,stroke:#b58329,color:#5c400d;
-    class U,UI,Q,R,P,C,V,F,H built;
-    class S,D simulated;
+    ui["Browser controls + session state [implemented]"]
+    q["Five-question questionnaire [implemented]"]
+    r["Rule-based risk inference [implemented]"]
+    p["Profile + conflict clarification [implemented]"]
+    s["Scenario selector + mode controls [implemented]"]
+    d["Fictional portfolios + fixed advice [simulated]"]
+    c["Risk-category comparator [implemented]"]
+    v["Advice view; comparison only in Inspectable [implemented]"]
+    f["Accept / decline feedback + history [implemented]"]
+    l["Optional LLM dialogue; not connected [planned]"]
+    ui -->|answers| q
+    q -->|score| r
+    r -->|category / conflict| p
+    p -->|correct answers| q
+    p -->|continue if ready| s
+    s -->|select example| d
+    d -->|portfolio risk| c
+    r -->|profile| c
+    c -->|comparison data| v
+    d -->|same advice in both modes| v
+    s -->|switch mode / scenario| v
+    v -->|accept / decline| f
+    f -->|reconsider| v
+    v -->|edit profile| q
+    ui -->|reset to welcome; clear session| ui
+    classDef implemented fill:#e8f6ef,stroke:#3c8976,color:#173a34;
+    class ui,q,r,p,s,c,v,f implemented;
+    classDef simulated fill:#fff1dd,stroke:#be8c3f,color:#173a34;
+    class d simulated;
+    classDef planned fill:#f4f1fa,stroke:#9a7cb6,color:#173a34;
+    class l planned;
