@@ -1,0 +1,19 @@
+digraph RiskLens {
+  graph [rankdir=LR, bgcolor="white", pad="0.4", nodesep="0.52", ranksep="0.82", fontname="Arial", label="RiskLens v0.1 — architecture and status", labelloc=t, fontsize=20, fontcolor="#173a34"];
+  node [shape=box, style="filled,rounded", color="#3c8976", fillcolor="#e8f6ef", fontname="Arial", fontsize=11, fontcolor="#1b4038", margin="0.18,0.13"];
+  edge [color="#649e90", arrowsize=.7, fontname="Arial", fontsize=9, fontcolor="#566c68"];
+  user [label="User choices\n[implemented]"];
+  ui [label="Browser UI + session state\n[implemented]"];
+  inference [label="5-item rule-based risk inference\n[implemented]"];
+  profile [label="Risk display + clarification\n[implemented]"];
+  comparison [label="Category comparison\n[implemented]"];
+  advice [label="Standard / inspectable advice\n[implemented]"];
+  decision [label="Accept / decline / reconsider\n[implemented]"];
+  scenarios [label="Fictional portfolios + scripts\n[simulated]",fillcolor="#fff1dd",color="#be8c3f"];
+  future [label="Optional LLM dialogue\n[planned: not connected]",fillcolor="#f4f1fa",color="#9a7cb6",style="filled,rounded,dashed"];
+  user->ui->inference->profile->comparison->advice->decision;
+  scenarios->comparison [label="scenario + risk category"];
+  decision->advice [label="reconsider",constraint=false];
+  profile->ui [label="correct answers",constraint=false];
+  future->advice [style=dotted,label="future only",constraint=false];
+}

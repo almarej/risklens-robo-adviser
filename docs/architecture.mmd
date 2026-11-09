@@ -1,0 +1,20 @@
+flowchart TD
+    U[User: fictional preferences] --> UI[Browser interface]
+    UI --> Q[Questionnaire state]
+    Q --> R[Rule-based risk inference]
+    R -->|category / conflict| P[Profile + clarification screen]
+    P -->|edit answer| Q
+    P -->|continue if ready| S[Fictional scenario selector]
+    S --> D[Static portfolio examples]
+    D --> C[Risk-category comparator]
+    R --> C
+    C --> V[Standard or inspectable advice view]
+    V -->|why / switch mode| V
+    V -->|accept or decline| F[Decision feedback]
+    F --> H[In-memory session event history]
+    F -->|reconsider| V
+    UI -->|reset| Q
+    classDef built fill:#e6f6ed,stroke:#28785d,color:#163f34;
+    classDef simulated fill:#fff2df,stroke:#b58329,color:#5c400d;
+    class U,UI,Q,R,P,C,V,F,H built;
+    class S,D simulated;
