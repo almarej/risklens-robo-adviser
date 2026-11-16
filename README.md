@@ -1,6 +1,4 @@
-# RiskLens — Explainable Conversational Robo-Adviser Simulator
-
-**README prose word count: 610 (excluding headings, fenced code/commands and this declaration; link labels included, destinations excluded; Unicode words with internal hyphens/apostrophes counted as one).**
+# RiskLens - Explainable Conversational Robo-Adviser Simulator
 
 > **Educational prototype only.** All profiles, portfolios, recommendations and thresholds are fictional. The application does not offer personal financial advice, connect to markets or perform trades.
 
@@ -51,7 +49,7 @@ npm test
 
 ## Development record and authorship
 
-**AI assistance:** ChatGPT generated the initial application, tests and documentation from an approved brief. The student ran local manual scenario checks, identified confusing scenario selection, directed the Codex-assisted improvement and reviewed the main behaviours before committing. See the development record for attribution and evidence limits.
+**AI assistance:** ChatGPT generated the initial application, tests and documentation from an approved brief. I ran local manual scenario checks, identified confusing scenario selection, directed the Codex-assisted improvement and reviewed the main behaviours before committing. See the development record for attribution and evidence limits.
 
 **Manual checks:** Matching, mismatching and contradictory-input journeys were exercised, including acceptance, rejection, warning and correction behaviour. After the selector update, the six principal interface checks were completed manually, covering labels, scenario/portfolio selection, selection feedback, mode switching and preservation of Standard advice. These are developer walkthroughs, not participant-study findings. Separate manual keyboard or mobile checks are not documented.
 
@@ -66,3 +64,5 @@ npm test
 ## Limitations and sources
 
 The prototype does not validate risk categorisation, predict returns, or measure improvements in investor judgement. It draws conceptually on Hildebrand and Bergner (2021), Back et al. (2023), Zhu et al. (2023), and Shneiderman (2022); see the user's A1 literature review for full bibliographic details. Any images or additional assets added later should be credited.
+
+README prose word count: 614 (excluding headings and code blocks)
